@@ -1,0 +1,53 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}WorldWide{% endblock %}</title>
+
+  <link rel="stylesheet" href="{% static 'blog/css/style.css' %}" />
+</head>
+<body>
+
+<header>
+  <div class="main-wrap">
+  <div class="container">
+    <nav class="nav">
+      <a class="logo" href="{% url 'home' %}">
+        <span class="logo-badge"><img src="https://cdn-icons-png.flaticon.com/512/476/476836.png"></span>
+        <span>WorldWide</span>
+      </a>
+<div class="navlinks">
+  <a href="{% url 'home' %}">Home</a>
+
+  {% for cat in categories %}
+    <a href="{% url 'category' cat.category_name|lower %}">
+      {{ cat.category_name }}
+    </a>
+  {% endfor %}
+
+  <a href="{% url 'write_for_us' %}">Write for us</a>
+  <a href="{% url 'contact' %}">Contact</a>
+</div>
+
+    </nav>
+  </div>
+  </div>
+</header>
+
+<main class="container page-pad">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="main-wrap">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="small"><b>© 2026 WorldWide — All rights reserved</b></div>
+      <div class="small"><b>Made with python django framework</b></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

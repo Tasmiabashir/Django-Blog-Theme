@@ -1,0 +1,260 @@
+{% extends "blog/base.html" %}
+{% block title %}Home • WorldWide{% endblock %}
+
+{% block content %}
+
+<!-- Featured -->
+<section class="featured">
+  {% if featured_post %}
+
+  <article class="card featured-main">
+    <div>
+      <div class="meta">
+        <span class="tag">Featured</span>
+        <span class="dot"></span>
+        <span>{{ featured_post.created_at|date:"M Y" }}</span>
+        <span class="dot"></span>
+      </div>
+
+      <h1>{{ featured_post.title }}</h1>
+
+      <p>
+        {{ featured_post.description|truncatewords:30 }}
+      </p>
+
+      <div style="margin-top:14px;">
+        <a class="btn" href="{% url 'post_detail' featured_post.slug %}">Read Featured Post →</a>
+      </div>
+    </div>
+
+    <img class="f-img" src="{{ featured_post.image.url }}" alt="{{ featured_post.title }}">
+  </article>
+
+{% endif %}
+
+  <aside class="card featured-side">
+ <h3>Trending Post</h3>
+
+
+  {% for p in trending_posts %}
+    <a class="small-post" href="{% url 'post_detail' p.slug %}">
+      <img class="s-thumb" src="{{ p.image.url }}" alt="{{ p.title }}">
+      <div>
+        <h4>{{ p.title|truncatewords:5 }}</h4>
+        <span>{{ p.category.category_name }} • {{ p.created_at|date:"M Y" }}</span>
+      </div>
+    </a>
+  {% endfor %}
+</aside>
+
+</section>
+
+<!-- Main layout -->
+<section class="main">
+  <!-- Left -->
+ <div>
+  <div class="section-title">
+    <h2>Latest Posts</h2>
+    <a href="{% url 'category' 'tech' %}">View all →</a>
+  </div>
+
+  <div class="posts-grid">
+
+    {% for post in latest_posts %}
+    <a class="post" href="{% url 'post_detail' post.slug %}">
+
+      <div class="thumb">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+      </div>
+
+      <div class="meta">
+        <span class="tag">{{ post.category.category_name }}</span>
+        <span>{{ post.created_at|date:"M Y" }}</span>
+        <span>{{ post.read_time }} min read</span>
+      </div>
+
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description|truncatewords:18 }}</p>
+
+    </a>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="card widget search">
+      <h3>Search</h3>
+      <input type="text" placeholder="Search (static UI)..." />
+    </div>
+
+    <div class="card widget">
+      <h3>Categories</h3>
+      <a href="{% url 'category' 'tech' %}"><span>Tech</span><span>8</span></a>
+      <a href="{% url 'category' 'design' %}"><span>Design</span><span>5</span></a>
+      <a href="{% url 'category' 'business' %}"><span>Business</span><span>6</span></a>
+    </div>
+
+    <div class="card widget">
+      <h3>Pages</h3>
+      <a href="{% url 'write_for_us' %}"><span>Write for Us</span><span>→</span></a>
+      <a href="{% url 'contact' %}"><span>Contact Us</span><span>→</span></a>
+    </div>
+  </aside>
+</section>
+<section>
+<div class="container page-pad"><h2>Don't Miss</h2>
+<section class="container page-pad trend-section">
+
+  <!-- LEFT BIG CARD -->
+{% if business_featured %}
+<a class="trend-left" href="{% url 'post_detail' business_featured.slug %}">
+
+  <img
+    src="{{ business_featured.image.url }}"
+    alt="{{ business_featured.title }}"/>
+
+  <div class="trend-overlay">
+    <div class="trend-tags">
+      <span class="tag lifestyle">BUSINESS</span>
+      <span class="tag latest">LATEST</span>
+    </div>
+
+    <h2 class="trend-title">
+      {{ business_featured.title }}
+    </h2>
+
+    <div class="trend-date">
+      <span class="clock">⏱</span>
+      {{ business_featured.created_at|date:"F d, Y" }}
+    </div>
+  </div>
+
+</a>
+{% endif %}
+
+
+
+  <!-- RIGHT STACK -->
+  <div class="trend-right">
+
+    <!-- card 1 -->
+  {% if tech_post %}
+<a class="trend-item" href="{% url 'post_detail' tech_post.slug %}">
+  <div class="trend-thumb">
+    <img src="{{ tech_post.image.url }}" alt="{{ tech_post.title }}">
+  </div>
+
+  <div class="trend-info">
+    <div class="trend-tags">
+      <span class="tag tech">TECH</span>
+    </div>
+
+    <h3>{{ tech_post.title }}</h3>
+
+    <div class="trend-date small">
+      <span class="clock">⏱</span>
+      {{ tech_post.created_at|date:"F d, Y" }}
+    </div>
+  </div>
+</a>
+{% endif %}
+
+
+    <!-- card 2 -->
+    {% if design_post %}
+<a class="trend-item" href="{% url 'post_detail' design_post.slug %}">
+  <div class="trend-thumb">
+    <img src="{{ design_post.image.url }}" alt="{{ design_post.title }}">
+  </div>
+
+  <div class="trend-info">
+    <div class="trend-tags">
+      <span class="tag design">DESIGN</span>
+    </div>
+
+    <h3>{{ design_post.title }}</h3>
+
+    <div class="trend-date small">
+      <span class="clock">⏱</span>
+      {{ design_post.created_at|date:"F d, Y" }}
+    </div>
+  </div>
+</a>
+{% endif %}
+
+
+    <!-- card 3 -->
+{% if latest_post %}
+<a class="trend-item" href="{% url 'post_detail' latest_post.slug %}">
+  <div class="trend-thumb">
+    <img src="{{ latest_post.image.url }}" alt="{{ latest_post.title }}">
+  </div>
+
+  <div class="trend-info">
+    <div class="trend-tags">
+      <span class="tag latest">LATEST</span>
+    </div>
+
+    <h3>{{ latest_post.title }}</h3>
+
+    <div class="trend-date small">
+      <span class="clock">⏱</span>
+      {{ latest_post.created_at|date:"F d, Y" }}
+    </div>
+  </div>
+</a>
+{% endif %}
+
+
+  </div>
+
+</section>
+</div>
+<section class="container page-pad fullwidth-posts">
+ <div class="section-heading">
+  <h2>Latest Picks</h2>
+</div>
+
+<div class="posts-3col">
+
+  {% for post in latest_picks %}
+  <article class="mini-post">
+
+    <div class="mini-thumb">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    </div>
+
+    <div class="mini-content">
+
+      <div class="mini-tags">
+        <span class="pill {{ post.category.category_name|lower }}">
+          {{ post.category.category_name|upper }}
+        </span>
+
+        {% if post.is_editor_pick %}
+          <span class="pill editor">EDITOR-PICK</span>
+        {% endif %}
+      </div>
+
+      <h3 class="mini-title">
+        <a href="{% url 'post_detail' post.slug %}">
+          {{ post.title }}
+        </a>
+      </h3>
+
+      <div class="mini-date">
+        <span class="mini-icon">⏱</span>
+        {{ post.created_at|date:"M d, Y" }}
+      </div>
+
+    </div>
+  </article>
+  {% endfor %}
+
+</div>
+
+</section>
+{% endblock %}

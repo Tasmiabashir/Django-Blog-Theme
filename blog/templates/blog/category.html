@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="container page-pad">
+
+  <h1>{{ category.category_name|title }}</h1>
+
+  <div class="posts-grid">
+    {% for post in posts %}
+      <a class="post" href="{% url 'post_detail' post.slug %}">
+        <div class="thumb">
+          <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        </div>
+
+        <div class="meta">
+          <span class="tag">{{ post.category.category_name }}</span>
+          <span>{{ post.created_at|date:"M Y" }}</span>
+        </div>
+
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.description|truncatewords:20 }}</p>
+      </a>
+    {% empty %}
+      <p>No posts found in this category.</p>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,384 @@
+{% extends "blog/base.html" %}
+{% block title %}Home • WorldWide{% endblock %}
+
+{% block content %}
+
+<!-- Featured -->
+<section class="featured">
+  <article class="card featured-main">
+    <div>
+      <div class="meta">
+        <span class="tag">Featured</span>
+        <span class="dot"></span>
+        <span>Jan 2026</span>
+        <span class="dot"></span>
+        <span>7 min read</span>
+      </div>
+
+      <h1>How To Make Money With AI (10 Easy Ideas)</h1>
+      <p>
+        Artificial intelligence is transforming the way people earn money online and offline.
+        From automation to content creation, AI-powered tools enable individuals and businesses to scale operations.
+      </p>
+
+      <div style="margin-top:14px;">
+       <a class="btn" href="{% url 'home' %}">Read Featured Post →</a>
+
+      </div>
+    </div>
+
+    <img class="f-img"
+      src="https://vibtrends.com/wp-content/uploads/2025/12/futuristic-robot-interacting-with-money-BD-1024x573.jpg"
+      alt="Featured image">
+  </article>
+
+  <aside class="card featured-side">
+    <h3>Trending</h3>
+
+    <a class="small-post" href="{% url 'home' %}">
+      <img class="s-thumb" src="https://vibtrends.com/wp-content/uploads/2025/01/Trending-Blogs-2025.webp" alt="">
+      <div>
+        <h4>Clean UI tips for blogs</h4>
+        <span>Design • 4 min</span>
+      </div>
+    </a>
+
+    <a class="small-post" href="{% url 'home' %}">
+      <img class="s-thumb" src="https://vibtrends.com/wp-content/uploads/2022/05/pexels-pixabay-73910-1024x819.jpg" alt="">
+      <div>
+        <h4>Content marketing basics</h4>
+        <span>Business • 6 min</span>
+      </div>
+    </a>
+    <a class="small-post" href="{% url 'home' %}">
+      <img class="s-thumb" src="https://vibtrends.com/wp-content/uploads/2022/05/pexels-pixabay-73910-1024x819.jpg" alt="">
+      <div>
+        <h4>Content marketing basics</h4>
+        <span>Business • 6 min</span>
+      </div>
+    </a>
+  </aside>
+</section>
+
+<!-- Main layout -->
+<section class="main">
+  <!-- Left -->
+  <div>
+    <div class="section-title">
+      <h2>Latest Posts</h2>
+   <a href="{% url 'category' 'tech' %}">View all →</a>
+    </div>
+
+    <div class="posts-grid">
+      <a class="post" href="{% url 'home' %}">
+        <div class="thumb">
+          <img src="https://vibtrends.com/wp-content/uploads/2025/02/Lady-Gaga-GettyImages-633950600-1000x600-1.webp" alt="">
+        </div>
+        <div class="meta">
+          <span class="tag">Tech</span>
+          <span>Jan 2026</span>
+          <span>5 min read</span>
+        </div>
+        <h3>How to Build a Static Blog (HTML + CSS)</h3>
+        <p>Cards, grids, spacing and typography — build a clean UI without any framework.</p>
+      </a>
+
+      <a class="post" href="{% url 'home' %}">
+        <div class="thumb">
+          <img src="https://vibtrends.com/wp-content/uploads/2025/01/homemade-shamp.webp" alt="">
+        </div>
+        <div class="meta">
+          <span class="tag">Design</span>
+          <span>Jan 2026</span>
+          <span>4 min read</span>
+        </div>
+        <h3>UI Tips for a Professional Blog Layout</h3>
+        <p>How to make your blog look premium using simple design rules and white space.</p>
+      </a>
+
+      <a class="post" href="{% url 'home' %}">
+        <div class="thumb">
+          <img src="https://vibtrends.com/wp-content/uploads/2025/01/homemade-shamp.webp" alt="">
+        </div>
+        <div class="meta">
+          <span class="tag">Business</span>
+          <span>Jan 2026</span>
+          <span>6 min read</span>
+        </div>
+        <h3>Content Marketing Basics for Beginners</h3>
+        <p>Plan your content, write better posts, and improve engagement with your blog.</p>
+      </a>
+         <a class="post" href="{% url 'home' %}">
+          <div class="thumb">
+          <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt=""></div>
+          <div class="meta">
+            <span class="tag">Tech</span>
+            <span>Jan 2026</span>
+            <span>3 min read</span>
+          </div>
+          <h3>Simple SEO Checklist for Blog Posts</h3>
+          <p>Headings, alt text, internal links — quick improvements to rank better.</p>
+        </a>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="card widget search">
+      <h3>Search</h3>
+      <input type="text" placeholder="Search (static UI)..." />
+    </div>
+
+    <div class="card widget">
+      <h3>Categories</h3>
+      <a href="{% url 'category' 'tech' %}"><span>Tech</span><span>8</span></a>
+      <a href="{% url 'category' 'design' %}"><span>Design</span><span>5</span></a>
+      <a href="{% url 'category' 'business' %}"><span>Business</span><span>6</span></a>
+    </div>
+
+    <div class="card widget">
+      <h3>Pages</h3>
+      <a href="{% url 'write_for_us' %}"><span>Write for Us</span><span>→</span></a>
+      <a href="{% url 'contact' %}"><span>Contact Us</span><span>→</span></a>
+    </div>
+  </aside>
+</section>
+<div class="container page-pad"><h2>Don't Miss</h2>
+<section class="container page-pad trend-section">
+
+  <!-- LEFT BIG CARD -->
+  <a class="trend-left" href="#">
+  
+    <img
+      src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png"
+      alt="Homemade Shampoo"
+    />
+
+    <div class="trend-overlay">
+      <div class="trend-tags">
+        <span class="tag lifestyle">LIFESTYLE</span>
+        <span class="tag latest">LATEST</span>
+      </div>
+
+      <h2 class="trend-title">
+        How to Make Homemade Shampoo: A Complete Guide
+      </h2>
+
+      <div class="trend-date">
+        <span class="clock">⏱</span> January 21, 2025
+      </div>
+    </div>
+  </a>
+
+
+  <!-- RIGHT STACK -->
+  <div class="trend-right">
+
+    <!-- card 1 -->
+    <a class="trend-item" href="#">
+      <div class="trend-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="Entertainment" />
+      </div>
+
+      <div class="trend-info">
+        <div class="trend-tags">
+          <span class="tag entertainment">ENTERTAINMENT</span>
+        </div>
+
+        <h3>Why Is Lady Gaga So Famous?</h3>
+
+        <div class="trend-date small">
+          <span class="clock">⏱</span> February 28, 2025
+        </div>
+      </div>
+    </a>
+
+    <!-- card 2 -->
+    <a class="trend-item" href="#">
+      <div class="trend-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="Travel Science" />
+      </div>
+
+      <div class="trend-info">
+        <div class="trend-tags">
+          <span class="tag latest">LATEST</span>
+          <span class="tag travel">TRAVEL</span>
+        </div>
+
+        <h3>Scientists Discover New Species: A Glimpse into Nature’s Hidden Wonders</h3>
+
+        <div class="trend-date small">
+          <span class="clock">⏱</span> February 4, 2025
+        </div>
+      </div>
+    </a>
+
+    <!-- card 3 -->
+    <a class="trend-item" href="#">
+      <div class="trend-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="Trending Blogs" />
+      </div>
+
+      <div class="trend-info">
+        <div class="trend-tags">
+          <span class="tag latest">LATEST</span>
+        </div>
+
+        <h3>Trending Blogs 2025: Exploring the Future of Digital Content</h3>
+
+        <div class="trend-date small">
+          <span class="clock">⏱</span> January 29, 2025
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+</section>
+</div>
+<section class="container page-pad fullwidth-posts">
+  <div class="section-heading">
+    <h2>Latest Picks</h2>
+  </div>
+
+  <div class="posts-3col">
+
+    <!-- Item 1 -->
+    <article class="mini-post">
+      <div class="mini-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="post image">
+      </div>
+
+      <div class="mini-content">
+        <div class="mini-tags">
+          <span class="pill latest">LATEST</span>
+          <span class="pill travel">TRAVEL</span>
+        </div>
+
+        <h3 class="mini-title">
+          Scientists Discover New Species: A Glimpse into Nature’s Hidden Wonders
+        </h3>
+
+        <div class="mini-date">
+          <span class="mini-icon">⏱</span>
+          Feb 04, 2025
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 2 -->
+    <article class="mini-post">
+      <div class="mini-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="post image">
+      </div>
+
+      <div class="mini-content">
+        <div class="mini-tags">
+          <span class="pill entertainment">ENTERTAINMENT</span>
+          <span class="pill editor">EDITOR-PICK</span>
+        </div>
+
+        <h3 class="mini-title">
+          Managing Kids’ Birthday Party Packages
+        </h3>
+
+        <div class="mini-date">
+          <span class="mini-icon">⏱</span>
+          Jan 31, 2025
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 3 -->
+    <article class="mini-post">
+      <div class="mini-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="post image">
+      </div>
+
+      <div class="mini-content">
+        <div class="mini-tags">
+          <span class="pill entertainment">ENTERTAINMENT</span>
+        </div>
+
+        <h3 class="mini-title">
+          Birthday Party Packages That Pack an Educational Punch
+        </h3>
+
+        <div class="mini-date">
+          <span class="mini-icon">⏱</span>
+          Jan 31, 2025
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 4 -->
+    <article class="mini-post">
+      <div class="mini-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="post image">
+      </div>
+
+      <div class="mini-content">
+        <div class="mini-tags">
+          <span class="pill entertainment">ENTERTAINMENT</span>
+          <span class="pill travel">TRAVEL</span>
+        </div>
+
+        <h3 class="mini-title">
+          Benefits of Partaking in Outdoor Adventure Activities
+        </h3>
+
+        <div class="mini-date">
+          <span class="mini-icon">⏱</span>
+          Jan 31, 2025
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 5 -->
+    <article class="mini-post">
+      <div class="mini-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="post image">
+      </div>
+
+      <div class="mini-content">
+        <div class="mini-tags">
+          <span class="pill latest">LATEST</span>
+        </div>
+
+        <h3 class="mini-title">
+          Trending Blogs 2025: Exploring the Future of Digital Content
+        </h3>
+
+        <div class="mini-date">
+          <span class="mini-icon">⏱</span>
+          Jan 29, 2025
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 6 -->
+    <article class="mini-post">
+      <div class="mini-thumb">
+        <img src="https://vibtrends.com/wp-content/uploads/2025/12/ai-examples-in-daily-768x477.png" alt="post image">
+      </div>
+
+      <div class="mini-content">
+        <div class="mini-tags">
+          <span class="pill food">FOOD</span>
+          <span class="pill editor">EDITOR-PICK</span>
+        </div>
+
+        <h3 class="mini-title">
+          The Health Benefits of Coconut Milk
+        </h3>
+
+        <div class="mini-date">
+          <span class="mini-icon">⏱</span>
+          Jan 21, 2025
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+{% endblock %}

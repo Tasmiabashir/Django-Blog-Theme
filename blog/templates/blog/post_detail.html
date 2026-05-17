@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ post.title }} • WorldWide{% endblock %}
+
+{% block content %}
+<div class="card page-card">
+
+  <div class="meta">
+    <span class="tag">{{ post.category.category_name }}</span>
+    <span>{{ post.created_at|date:"M d, Y" }}</span>
+  </div>
+
+  <h1>{{ post.title }}</h1>
+
+  <div style="margin-top:16px;">
+    <img src="{{ post.image.url }}" alt="{{ post.title }}"
+         style="width:100%; border-radius:16px; border:1px solid #ddd;">
+  </div>
+
+  <div style="margin-top:18px;">
+    <p style="line-height: 1.8;">
+      {{ post.description|linebreaks }}
+    </p>
+  </div>
+
+</div>
+{% endblock %}

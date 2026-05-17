@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+{% block title %}Contact • WorldWide{% endblock %}
+
+{% block content %}
+<div class="card page-card">
+  <h1>Contact Us</h1>
+  <p>This is a static form UI (no backend). You can connect it later to Django forms.</p>
+
+  <form>
+    <div class="field">
+      <label>Your Name</label>
+      <input type="text" placeholder="Enter your name">
+    </div>
+
+    <div class="field">
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email">
+    </div>
+
+    <div class="field">
+      <label>Message</label>
+      <textarea placeholder="Write your message..."></textarea>
+    </div>
+
+    <button type="button">Send Message</button>
+  </form>
+</div>
+{% endblock %}
